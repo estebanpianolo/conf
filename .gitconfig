@@ -1,0 +1,14 @@
+[alias]
+	co = checkout
+	cb = checkout -b
+	br = branch
+	ci = commit
+	st = status
+	pf = push --force
+	cp = cherry-pick
+	cm = checkout master
+	pr = pull --rebase
+	fop = fetch origin --prune
+[user]
+	name = Etienne Pinault
+	email = estebanpianolo@gmail.com
