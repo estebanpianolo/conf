@@ -9,6 +9,16 @@
 	cm = checkout master
 	pr = pull --rebase
 	fop = fetch origin --prune
+	cim = commit -m
+	rebaster = "!f(){ \
+		trap 'echo ERROR: Operation failed; return' ERR; \
+		local branch=`git branch | grep '* ' | tr -d '* '`; \
+		git checkout master;\
+		git pull --rebase;\
+		git checkout \"$branch\";\
+		git rebase \"master\"; \
+		};f"
+		
 [user]
 	name = Etienne Pinault
 	email = estebanpianolo@gmail.com
