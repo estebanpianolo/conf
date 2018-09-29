@@ -19,9 +19,9 @@
 		git rebase \"master\"; \
 		};f"
 		
-	tran = "!f(){ \
-		trap 'echo ERROR: Operation failed; sreturn' ERR; \
-		local prefix=`git branch | grep '* ' | tr -d '* ' | sed 's/\\(TRAN-[0-9]*\\).*/\\1/'`; \
+	com = "!f(){ \
+		trap 'echo ERROR: Operation failed; return' ERR; \
+		local prefix=`git branch | grep '* ' | tr -d '* ' | sed 's/\\([a-zA-Z]*-[0-9]*\\).*/\\1/'`; \
 		git commit -m \"$prefix $1\"; \
 		};f"
 [user]
