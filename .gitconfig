@@ -10,6 +10,8 @@
 	cm = checkout master
 	pr = pull --rebase
 	fop = fetch origin --prune
+	rc = rebase --continue
+	ca = commit --amend
 	cim = commit -m
 	rebaster = "!f(){ \
 		trap 'echo ERROR: Operation failed; return' ERR; \
