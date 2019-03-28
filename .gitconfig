@@ -3,6 +3,7 @@
 	cb = checkout -b
 	br = branch
 	ci = commit
+	ca = commit --amend
 	st = status
 	pf = push --force
 	cp = cherry-pick
@@ -23,6 +24,12 @@
 		trap 'echo ERROR: Operation failed; return' ERR; \
 		local prefix=`git branch | grep '* ' | tr -d '* ' | sed 's/\\([a-zA-Z]*-[0-9]*\\).*/\\1/'`; \
 		git commit -m \"$prefix $1\"; \
+		};f"
+	cmp = "!f(){ \
+		trap 'echo ERROR: Operation failed; return' ERR; \
+		git checkout master; \
+		git pull --rebase; \
+		git fetch origin --prune; \
 		};f"
 [user]
 	name = Etienne Pinault
