@@ -21,6 +21,13 @@
 		git checkout \"$branch\";\
 		git rebase \"master\"; \
 		};f"
+
+	cbp = "!f(){ \
+		trap 'echo ERROR: Operation failed; return' ERR; \
+		git checkout -b \"$1\"; \
+		git push --set-upstream origin \"$1\"; \
+		};f"
+
 		
 	com = "!f(){ \
 		trap 'echo ERROR: Operation failed; return' ERR; \
